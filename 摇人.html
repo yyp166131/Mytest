@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #wrap {
+            border:1px solid #ccc;
+            margin: 20px auto;
+            display: flex;
+            justify-content:space-around;
+            width: 500px;
+            flex-wrap: wrap;
+            padding: 5px;
+        }
+        .list {
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin: 5px;
+            font-size:20px;
+            width: 80px;
+            text-align: center;
+            color:#fff;
+        }
+        #btn {
+            border:1px solid #ccc;
+            padding:6px;
+            width:60px;
+            font-size:20px;
+            text-align: center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <!-- <div class="list">
+            蔡徐坤
+        </div> -->
+    </div>
+    <div id="btn">开始</div>
+</body>
+<script>
+    let arr = ['仝祖瑜 ','冯艺','冯静','法科龙','王哲','熊亚鑫','王亚洲','刘梦珂','党晨星','杨攀','史英凯','金鹏'];
+    for(let i = 0; i < arr.length;i++){
+        wrap.innerHTML += `
+        <div class="list">
+            ${arr[i]}            
+        </div>
+        `
+    }
+    let test = 50;
+    let type = false;
+    let list = document.querySelectorAll('.list')
+    btn.onclick = function(sum){
+        let num = 0;
+        sum = 50;
+        if(type){
+            return
+        }else{
+            type = true;
+        }
+        let timer = setInterval(()=>{
+            num++
+            if(num%10 == 0){
+                sum+=5000;
+                test+=1000;
+            }
+            for(let i = 0;i < list.length;i++){
+                list[i].style.backgroundColor = '#fff';
+            }
+            list[rn(0,list.length-1)].style.backgroundColor=rnCol();
+            if(num>50){
+                clearInterval(timer);
+                type = false;
+            }
+            console.log(test)
+        },test)
+    }
+
+    function rn(x,y) {
+        return Math.round(Math.random()*(y-x)+x);
+    }
+    function rnCol(){
+        return `rgb(${rn(50,200)},${rn(50,200)},${rn(50,200)})`
+    }
+</script>
+</html>
